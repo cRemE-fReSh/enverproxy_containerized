@@ -1,0 +1,31 @@
+# Changing the buffer_size and delay can improve the speed and bandwidth.
+# But when buffer gets to large or delay is too short, things may break
+buffer_size = 4096
+delay       = 0.0001
+listen_port = 1898
+
+Verbosity levels (1-5)
+  1 = only start/stop
+  2 = + status and errors
+  3 = + flow control
+  4 = + data 
+  5 = anything
+
+Log types
+  sys.stdout
+  sys.stderr
+  syslog
+
+address and port settings for syslog:
+  log_address = localhost (syslog: put /dev/log into address)
+  log_port    = 514
+
+Envertecportal server to forward traffic to using the DNS name does not work, as DNS server redirects to proxy
+forward_IP   = 47.91.242.120 (www.envertecportal.com has IP 47.91.242.120)
+forward_port = 10013
+
+parameters to send commands to MQTT server at <mqtthost>:<mqttport> with username <mqttuser> and password <mqttpassword>
+mqttuser     = your_user
+mqttpassword = your_password
+mqtthost     = ip-address
+mqttport = 1833

@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+    enverproxy:
+        restart: unless-stopped
+        build: .
+        ports:
+            - 1898
+        container_name: enverproxy
+        environment:
+            - verbosity
+            - logType
+            - logAddress
+            - logPort
+            - forwardIp
+            - forwardPort
+            - delay
+            - bufferSize
+            - listenPort
+            - mqttHost 
+            - mqttPort
+            - mqttUser
+            - mqttPassword
+
+        healthcheck:
+            test: ["CMD-SHELL", "netstat -ltn | grep -c 1898 || exit 1"]
